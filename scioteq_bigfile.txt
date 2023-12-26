@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    // Declare an array of strings
+    char strings[5][20]; // Assuming each string has a maximum length of 19 characters
+    
+    // Initialize the array with different strings
+    strcpy(strings[0], "BtnWholeScroll");
+    strcpy(strings[1], "BtnSplitBkg0");
+    strcpy(strings[2], "BtnSplitBkg1");
+    strcpy(strings[3], "BtnSplitHeader");
+    strcpy(strings[4], "BtnSplitProfile");
+    
+    
+    char str_value[5][100];
+    
+    strcpy(str_value[0], "GgfChartMenuChartDrawCallback");
+    strcpy(str_value[1], "GgfChartMenuStandardDrawCallback");
+    strcpy(str_value[2], "GgfChartMenuStandardDrawCallback");
+    strcpy(str_value[3], "GgfChartMenuSplitDrawCallback");
+    strcpy(str_value[4], "GgfChartMenuSplitDrawCallback");
+
+    // Print the elements using a for loop
+    
+    for (int i = 0; i < 5; ++i) {
+        printf("\n#if(ClButton_SetDrawCallback_count == %d){\n",i+1);
+        printf("CHECK(this == &%s);\n", strings[i]);
+        printf("CHECK(newDrawCallback == %s);\n",str_value[i]);
+        printf("#}\n");
+    }
+
+    return 0;
+}
